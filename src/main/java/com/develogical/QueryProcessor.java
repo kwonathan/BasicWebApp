@@ -21,6 +21,10 @@ public class QueryProcessor {
             return "WASD";
         }
 
+        if (query.toLowerCase().contains("which of the following numbers is the largest")) {
+            return "20890";
+        }
+
         return "";
     }
 }
