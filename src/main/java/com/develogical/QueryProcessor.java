@@ -150,11 +150,11 @@ public class QueryProcessor {
             return "Sean Connery";
         }
 
-        if (query.toLowerCase().contains("Eiffel")) {
+        if (query.toLowerCase().contains("eiffel")) {
             return "Paris";
         }
 
-        if (query.toLowerCase().contains("Theresa")) {
+        if (query.toLowerCase().contains("theresa")) {
             return "2016";
         }
 
