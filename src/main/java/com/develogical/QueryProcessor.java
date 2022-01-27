@@ -72,7 +72,8 @@ public class QueryProcessor {
                 array.add(Integer.parseInt(matcher.group()));
             }
 
-            double power = Math.pow(array.get(0), array.get(1));
+            int power = (int)Math.pow(array.get(0), array.get(1));
+
             return String.valueOf(power);
         }
 
