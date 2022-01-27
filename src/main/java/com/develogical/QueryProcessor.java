@@ -93,6 +93,10 @@ public class QueryProcessor {
             return "";
         }
 
+        if (query.toLowerCase().contains("colour banana")) {
+            return "yellow";
+        }
+
         return "";
     }
 }
