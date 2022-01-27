@@ -124,6 +124,10 @@ public class QueryProcessor {
             return "Paris";
         }
 
+        if (query.toLowerCase().contains("Theresa")) {
+            return "2016";
+        }
+
         return "";
     }
 }
