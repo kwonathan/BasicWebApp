@@ -44,6 +44,27 @@ public class QueryProcessor {
             return String.valueOf(sum);
         }
 
+        if (query.toLowerCase().contains("largest")) {
+            String regex = "\\d+";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(query);
+
+            ArrayList<Integer> array = new ArrayList<>();
+
+            while(matcher.find()) {
+                array.add(Integer.parseInt(matcher.group()));
+            }
+
+            int largest = 0;
+            for (int num : array) {
+                if (num >= largest) {
+                    largest = num;
+                }
+            }
+
+            return String.valueOf(largest);
+        }
+
         return "";
     }
 }
