@@ -46,6 +46,25 @@ public class QueryProcessor {
             return String.valueOf(sum);
         }
 
+        if (query.toLowerCase().contains("multiplied")) {
+            String regex = "\\d+";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(query);
+
+            ArrayList<Integer> array = new ArrayList<>();
+
+            while(matcher.find()) {
+                array.add(Integer.parseInt(matcher.group()));
+            }
+
+            int product = 1;
+            for (int num : array) {
+                product *= num;
+            }
+
+            return String.valueOf(product);
+        }
+
         if (query.toLowerCase().contains("largest")) {
             String regex = "\\d+";
             Pattern pattern = Pattern.compile(regex);
@@ -98,7 +117,11 @@ public class QueryProcessor {
         }
 
         if (query.toLowerCase().contains("bond dr no")) {
-            return "Sean Connery"
+            return "Sean Connery";
+        }
+
+        if (query.toLowerCase().contains("Eiffel")) {
+            return "Paris";
         }
 
         return "";
