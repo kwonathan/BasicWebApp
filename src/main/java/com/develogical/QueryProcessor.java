@@ -61,6 +61,21 @@ public class QueryProcessor {
             return String.valueOf(minus);
         }
 
+        if (query.toLowerCase().contains("to the power of")) {
+            String regex = "\\d+";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(query);
+
+            ArrayList<Integer> array = new ArrayList<>();
+
+            while (matcher.find()) {
+                array.add(Integer.parseInt(matcher.group()));
+            }
+
+            double power = Math.pow(array.get(0), array.get(1));
+            return String.valueOf(power);
+        }
+
         if (query.toLowerCase().contains("multiplied")) {
             String regex = "\\d+";
             Pattern pattern = Pattern.compile(regex);
@@ -141,33 +156,6 @@ public class QueryProcessor {
 
         if (query.toLowerCase().contains("Theresa")) {
             return "2016";
-        }
-
-        if (query.toLowerCase().contains("prime")) {
-            String regex = "\\d+";
-            Pattern pattern = Pattern.compile(regex);
-            Matcher matcher = pattern.matcher(query);
-
-            ArrayList<Integer> array = new ArrayList<>();
-
-            while(matcher.find()) {
-                array.add(Integer.parseInt(matcher.group()));
-            }
-
-            for (int num : array) {
-                boolean flag = false;
-                for (int i = 2; i <= num / 2; ++i) {
-                    // condition for nonprime number
-                    if (num % i == 0) {
-                        flag = true;
-                        break;
-                    }
-                }
-
-
-            }
-
-            return "";
         }
 
         return "";
