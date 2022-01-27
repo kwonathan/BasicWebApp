@@ -97,6 +97,10 @@ public class QueryProcessor {
             return "yellow";
         }
 
+        if (query.toLowerCase().contains("bond dr no")) {
+            return "Sean Connery"
+        }
+
         return "";
     }
 }
