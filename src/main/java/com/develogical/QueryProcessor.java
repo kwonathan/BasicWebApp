@@ -112,11 +112,11 @@ public class QueryProcessor {
             return "";
         }
 
-        if (query.toLowerCase().contains("colour banana")) {
+        if (query.toLowerCase().contains("colour is a banana")) {
             return "yellow";
         }
 
-        if (query.toLowerCase().contains("bond dr no")) {
+        if (query.toLowerCase().contains("james bond in the film dr no")) {
             return "Sean Connery";
         }
 
