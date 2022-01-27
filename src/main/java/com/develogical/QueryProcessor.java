@@ -1,5 +1,9 @@
 package com.develogical;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.ArrayList;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -21,8 +25,23 @@ public class QueryProcessor {
             return "WASD";
         }
 
-        if (query.toLowerCase().contains("which of the following numbers is the largest")) {
-            return "20890";
+        if (query.toLowerCase().contains("plus")) {
+            String regex = "\\d+";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(query);
+
+            ArrayList<Integer> array = new ArrayList<>();
+
+            while(matcher.find()) {
+                array.add(Integer.parseInt(matcher.group()));
+            }
+
+            int sum = 0;
+            for (int num : array) {
+                sum += num;
+            }
+
+            return String.valueOf(sum);
         }
 
         return "";
