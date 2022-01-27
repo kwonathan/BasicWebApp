@@ -1,5 +1,7 @@
 package com.develogical;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.ArrayList;
@@ -63,6 +65,32 @@ public class QueryProcessor {
             }
 
             return String.valueOf(largest);
+        }
+
+        if (query.toLowerCase().contains("largest")) {
+            String regex = "\\d+";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(query);
+
+            ArrayList<Integer> array = new ArrayList<>();
+
+            while(matcher.find()) {
+                array.add(Integer.parseInt(matcher.group()));
+            }
+
+            int square_cube;
+
+            for (int num : array) {
+                double num_to_check = Math.sqrt((num));
+                if (num_to_check == (int)num_to_check) {
+                    double num_to_check_cube = Math.cbrt((num));
+                    if (num_to_check_cube == (int) num_to_check_cube) {
+                        return String.valueOf(num);
+                    }
+                }
+            }
+
+            return "";
         }
 
         return "";
